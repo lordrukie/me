@@ -29,7 +29,7 @@ function loadPage(page) {
 		}
 	};
 
-    xhttp.open('GET', `/src/pages/${page}.html`);
+    xhttp.open('GET', `./src/pages/${page}.html`);
     xhttp.send();
 
 }
