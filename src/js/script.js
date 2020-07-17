@@ -2,7 +2,11 @@ let page = window.location.hash.substr(1);
 if (page === '') page = 'home';
 
 const dynamic = document.querySelector('#dynamic-content');
-
+const loading = `<center>
+<div class="loadingio-spinner-bean-eater-k5k9egbecer"><div class="ldio-nivs26m89p">
+<div><div></div><div></div><div></div></div><div><div></div><div></div><div></div></div>
+</div></div> </center>
+`
 function change() {
 	setTimeout(()=> {
 		dynamic.classList.add('fade');
@@ -44,6 +48,7 @@ function loadPage(page) {
 
 				if (localStorage.getItem("pageNow") === page){
 					content.classList.remove('fade')
+					content.innerHTML = loading
 					content.innerHTML = xhttp.responseText;
 					contentText = document.querySelectorAll(".text-white")
 					if(localStorage.getItem("toggle")== "true"){
@@ -52,6 +57,7 @@ function loadPage(page) {
 				} else {
 					removeChange()
 					setTimeout(()=> {
+					content.innerHTML = loading
 					content.innerHTML = xhttp.responseText;
 					contentText = document.querySelectorAll(".text-white")
 					if(localStorage.getItem("toggle")== "true"){
