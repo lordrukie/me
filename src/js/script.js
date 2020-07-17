@@ -1,31 +1,73 @@
 let page = window.location.hash.substr(1);
 if (page === '') page = 'home';
+
+const dynamic = document.querySelector('#dynamic-content');
+
+function change() {
+	setTimeout(()=> {
+		dynamic.classList.add('fade');
+	}), 400
+	
+  }
+function removeChange(){
+	setTimeout( () => {
+		dynamic.classList.remove('fade')
+	}, 400
+		
+	)
+	
+}
+
+
 document.querySelectorAll(".link").forEach((link)=> {
 	link.addEventListener("click", ()=> {
+		localStorage.setItem("pageNow", page)
 		page = link.getAttribute("href").substr(1)
-		loadPage(page)
+		if (localStorage.getItem("pageNow") !== page){
+			loadPage(page)
+		}
+
 	})
 })
+
 loadPage(page)
+
 function loadPage(page) {
+	change()
+
 	const xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function () {
 		if (this.readyState === 4) {
 			const content = document.querySelector('#dynamic-content');
-            console.log(page)
+
 			if (this.status === 200) {
-				content.innerHTML = xhttp.responseText;
+
+				if (localStorage.getItem("pageNow") === page){
+					content.classList.remove('fade')
+					content.innerHTML = xhttp.responseText;
+					contentText = document.querySelectorAll(".text-white")
+					if(localStorage.getItem("toggle")== "true"){
+						whiteToDark()
+					}
+				} else {
+					removeChange()
+					setTimeout(()=> {
+					content.innerHTML = xhttp.responseText;
+					contentText = document.querySelectorAll(".text-white")
+					if(localStorage.getItem("toggle")== "true"){
+						whiteToDark()
+					}
+				}, 340)
+				}
+				
 				
 			} else if (this.status === 404) {
 				content.innerHTML = '<p  class="text-white">Halaman tidak ditemukan.</p>';
 			} else {
 				content.innerHTML = '<p  class="text-white">Ups.. halaman tidak dapat diakses.</p>';
 			}
-			contentText = document.querySelectorAll(".text-white")
 
-				if(localStorage.getItem("toggle")== "true"){
-					whiteToDark()
-				}
+				
 		}
 	};
 

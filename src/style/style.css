@@ -73,16 +73,21 @@ nav ul li a {
     text-align: center;
 }
 #static-content figure img {
-    width: 120px;
+    width: 150px;
 }
 #dynamic-content {
     margin-top: 40px;
     float: right;
     width: 65%;
-    display: flex;
     box-sizing: border-box;
     padding-left: 40px;
+    padding-bottom: 100px;
+    /* transition: opacity .5s ease; */
 }
+.fade{
+    opacity: 0;
+    transition: 0.8s;
+  }
 .content {
     box-sizing: border-box;
     padding: 25px;
@@ -94,7 +99,7 @@ nav ul li a {
     background-color: #707070
 }
 .text-white{
-    color: #2b2b2b
+    color: #2b2b2b;
 }
 .text-dark {
     color: white;
@@ -108,9 +113,14 @@ nav ul li a {
 .nav-dark {
     background-color: rgb(56, 56, 56);
 }
+.nav-dark, .nav-white, .content-light, .text-white, .text-dark, .dark, .white {
+    transition: 0.6s;
+}
 .role {
-    opacity: 0.8;
     margin-top: -5px;
+}
+.name {
+    font-size: 1.5em;
 }
 .sosmed {
     margin: 0 auto;
@@ -129,6 +139,7 @@ iframe {
     height: 800px;
 
 }
+
 .project {
     display: flex;
     flex-wrap: wrap;
@@ -157,10 +168,13 @@ iframe {
     width: 260px;
 }
 .card-title {
-    background-color: rgb(245, 245, 245);
-    text-align: center;
     margin-top: -10px;
-    padding: 20px;
+    padding: 15px 0;
+    text-align: center;
+    background-color: white;
+}
+.card-title p {
+    margin-bottom: 20px;
 }
  a {
     text-decoration: none;
@@ -177,7 +191,36 @@ iframe {
 .skills .card-header {
     padding: 5px;
 }
+.form {
+   text-align: center;
+    margin-top: 50px;
+}
+form  {
+    display: flex;
+    flex-direction: column;
+    margin-left: -20px;
+    box-sizing: border-box;
+    padding: 0 40px;
+    border: unset;
 
+}
+.button {
+    margin: 5px 10px;
+    border-radius: 10px;
+    background-color: rgb(133, 120, 120);
+    box-sizing: border-box;
+    padding: 0 10px;
+    color: white;
+}
+.input-val{
+    border-radius: 5px;
+}
+.input .button {
+    width: 70px ;
+}
+.btn-input {
+    background-color: rgb(80, 70, 57);
+}
 
 @media  (max-width: 920px){
     #static-content {
@@ -192,6 +235,7 @@ iframe {
     #dynamic-content {
         float: none;
         width: 100%;
+   
     }
     #body-content {
         margin-bottom: 100px;
@@ -216,7 +260,16 @@ iframe {
         width: 40px;
         margin: -10px auto 0px auto;
     }
-  
+    .card-main img {
+        width: 100%;
+    }
+    .skills .card {
+        width: 100%;
+    }
+    .certificates {
+        margin-left: -10px;
+    }
+    
 }
 @media (max-width: 600px){
 
@@ -228,5 +281,18 @@ iframe {
         width: 100% !important;
         height: 850px;
  
+    }
+    .sosmed a img {
+        width: 25px ;
+     }
+}
+@media (max-width: 350px){
+    nav ul li a {
+        font-size: 13px;
+        padding: 10px 5px;
+    }
+    form  {
+
+        padding: 0 20px;
     }
 }
