@@ -294,13 +294,15 @@ form  {
 }
 .input-white{
     border: 2px solid rgb(44, 44, 44);
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(255, 255, 255);
     transition: 0.6s;
+    color: rgb(58, 58, 58);
 }
 .input-dark {
     border: 2px solid rgb(255, 255, 255);
     background-color: rgb(58, 58, 58);
     transition: 0.6s;
+    color: rgb(235, 235, 235);
 }
 
 .skills, .pro,.home, .contact {
