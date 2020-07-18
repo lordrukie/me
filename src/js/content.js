@@ -5,7 +5,6 @@ const isActive = document.querySelectorAll("nav ul li a")
 const home = document.querySelector("nav ul li a").getAttribute("href").substr(1)
 // Active Nav Function
 function active(){
-
 	isActive.forEach((active1)=> {
 		if(page === active1.getAttribute("href").substr(1)) {
 			if(localStorage.getItem("toggle") == "true"){
@@ -17,7 +16,6 @@ function active(){
 			}
 		}
 		active1.addEventListener("click", (activated)=>{
-		
 			if(localStorage.getItem("toggle") == "true"){
 				active1.classList.remove("active-dark", "active-white")
 
@@ -61,7 +59,13 @@ loadPage(page)
 function loadPage(page) {
 	change()
 
-
+	if(page !== "" && page !== "home"){
+		isActive[0].classList.remove("active-white", "active-dark")
+		console.log("bukan saya")
+	} else {
+		isActive[0].classList.add("active-white")
+		console.log("ya, ini saya :v")
+	}
 
 	const xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function () {
@@ -74,6 +78,7 @@ function loadPage(page) {
 					content.innerHTML = xhttp.responseText;
 					contentText = document.querySelectorAll(".text-white")
 					inputButton = document.querySelectorAll("input.button")
+					input = document.querySelectorAll(".input-val")
 					if(localStorage.getItem("toggle")== "true"){
 						whiteToDark()
 					}
@@ -83,6 +88,7 @@ function loadPage(page) {
 					content.innerHTML = xhttp.responseText;
 					contentText = document.querySelectorAll(".text-white")
 					inputButton = document.querySelectorAll("input.button")
+					input = document.querySelectorAll(".input-val")
 					if(page != "home"){
 						location.href = "#dynamic-content"
 					} else {
@@ -132,6 +138,7 @@ let inputButton = ""
 const activeted = document.querySelector("active-white", "active-dark")
 let isActiveWhite = document.querySelectorAll(".active-white")
 let isActiveDark = document.querySelectorAll(".active-dark")
+let input = ""
 
 function whiteToDark(){
 	isActiveWhite = document.querySelectorAll(".active-white")
@@ -141,6 +148,11 @@ function whiteToDark(){
 	nav.setAttribute("class", "nav-dark")
 	static.classList.remove("border-white")
 	static.classList.add("border-dark")
+
+	input.forEach(inputAll => {
+		inputAll.classList.remove("input-white")
+		inputAll.classList.add("input-dark")
+	})
 
 	inputButton.forEach((btn)=> {
 		btn.classList.remove("text-dark", "dark")
@@ -177,6 +189,12 @@ function darkToWhite() {
 	nav.setAttribute("class", "nav-white")
 	static.classList.remove("border-dark")
 	static.classList.add("border-white")
+
+	input.forEach(inputAll => {
+		inputAll.classList.remove("input-dark")
+		inputAll.classList.add("input-white")
+	})
+
 	inputButton.forEach((btn)=> {
 		btn.classList.remove("text-white", "white")
 		btn.classList.add("text-dark", "dark")
