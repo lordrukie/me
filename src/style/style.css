@@ -56,11 +56,11 @@ ul {
     list-style: none;
 }
 nav ul li a.text-dark:hover{
-    text-shadow: 0 0 2px #fff, 0 0 10px #fff;
+    text-shadow: 0 0 5px rgb(206, 206, 206), 0 0 10px rgb(111, 194, 219),  0 0 15px rgb(54, 134, 255),   0 0 20px rgb(37, 124, 255);
     transition: 0.3s;
 }
 nav ul li a.text-white:hover {
-    text-shadow: 0 0 2px rgb(226, 226, 226), 0 0 20px rgb(185, 185, 185),  0 0 40px rgb(129, 129, 129);
+    text-shadow: 0 0 5px rgb(255, 211, 15),0 0 5px rgb(255, 211, 15),0 0 5px rgb(255, 211, 15), 0 0 10px rgb(255, 243, 72),  0 0 15px rgb(255, 253, 126), 0 0 40px rgb(254, 255, 170) ;
     transition: 0.3s;
 }
 
@@ -90,7 +90,7 @@ nav ul li a.text-white:hover {
 /* Body Content */
 
 #body-content {
-    margin-top: 55px;
+    padding-top: 55px;
     justify-content: center;
     align-items: flex-start;
     box-sizing: border-box;
@@ -158,10 +158,15 @@ nav ul li a.text-white:hover {
 
 /* Dynamic Value */
 
-.active {
+.active-dark {
     font-weight: 800;
-    text-shadow: 0 0 2px rgb(226, 226, 226), 0 0 20px rgb(185, 185, 185),  0 0 40px rgb(129, 129, 129);
-    transition: 0.6s;
+    text-shadow: 0 0 5px rgb(206, 206, 206), 0 0 10px rgb(111, 194, 219),  0 0 15px rgb(54, 134, 255),   0 0 20px rgb(37, 124, 255);
+    transition: none;
+}
+.active-white {
+    font-weight: 800;
+    text-shadow: 0 0 5px rgb(255, 211, 15),0 0 5px rgb(255, 211, 15),0 0 5px rgb(255, 211, 15), 0 0 10px rgb(255, 243, 72),  0 0 15px rgb(255, 253, 126), 0 0 40px rgb(254, 255, 170) ;
+    transition: none;
 }
 
 .white {
